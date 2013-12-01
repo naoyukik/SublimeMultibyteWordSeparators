@@ -29,7 +29,6 @@ class MoveMultiByteWordCommand(sublime_plugin.TextCommand):
 
     def moveCursor(self, text, courseA):
         results = wordParse(text)
-        print(results)
         if len(results) <= 0:
             self.view.run_command("move", {"by": "characters", "forward": courseA})
             return True
