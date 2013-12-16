@@ -17,10 +17,12 @@ BitbucketからMercurialを使用してSublime Text 3のPackages配下にDLし�
 
     [
         { "keys": ["ctrl+left"], "command": "move_multi_byte_word", "args": {"forward": false}},
-        { "keys": ["ctrl+right"], "command": "move_multi_byte_word", "args": {"forward": true}}
+        { "keys": ["ctrl+right"], "command": "move_multi_byte_word", "args": {"forward": true}},
+        { "keys": ["ctrl+shift+left"], "command": "move_sel_multi_byte_word", "args": {"forward": false}},
+        { "keys": ["ctrl+shift+right"], "command": "move_sel_multi_byte_word", "args": {"forward": true}}
     ]
 
 制限
 ---
-- 選択しながら単語移動は出来ません。
+- 改行コードをまたいだ単語選択移動には対応していません。
 - マウスでの単語選択には対応していません。

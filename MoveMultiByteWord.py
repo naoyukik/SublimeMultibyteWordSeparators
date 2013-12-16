@@ -20,11 +20,8 @@ class MoveMultiByteWordCommand(sublime_plugin.TextCommand):
     def run(self, edit, forward=False):
         self.view.run_command("move", {"by": "words", "forward": forward, "extend": True})
         for region in self.view.sel():
-            cursor_word = self.view.substr(region)
-            if forward == True:
-                self.moveCursor(cursor_word, True)
-            else:
-                self.moveCursor(cursor_word, False)
+            cursorWord = self.view.substr(region)
+            self.moveCursor(cursorWord, forward)
             break
 
     def moveCursor(self, text, courseA):
@@ -32,14 +29,60 @@ class MoveMultiByteWordCommand(sublime_plugin.TextCommand):
         if len(results) <= 0:
             self.view.run_command("move", {"by": "characters", "forward": courseA})
             return True
-        set_index = -1
+        setIndex = -1
         courseB   = True
         if courseA == True:
-            set_index = 0
+            setIndex = 0
             courseB   = False
-        length = len(results[set_index])
+        length = len(results[setIndex])
         self.view.run_command("move", {"by": "characters", "forward": courseB})
         while length > 0:
             self.view.run_command("move", {"by": "characters", "forward": courseA})
             length -= 1
         return results
+
+class MoveSelMultiByteWordCommand(sublime_plugin.TextCommand):
+    def run(self, edit, forward=False):
+        for region in self.view.sel():
+            cursorWord = self.view.substr(region)
+            defSelWord = wordParse(cursorWord)
+        self.view.run_command("move", {"by": "words", "forward": forward, "extend": True})
+        for region in self.view.sel():
+            cursorWord = self.view.substr(region)
+            self.moveCursor(cursorWord, forward, defSelWord)
+            break
+
+    def moveCursor(self, text, courseA, defSelWord):
+        whileList = []
+        defSetIndex = 0;
+        results = wordParse(text)
+        length = len(defSelWord)
+
+        if courseA == True:
+            setIndex = 0
+            courseB   = False
+            while length > 0:
+                if results[setIndex] == defSelWord[defSetIndex]:
+                    whileList.append(len(defSelWord[defSetIndex]))
+                    results.pop(0)
+                defSetIndex += 1
+                length -= 1
+        else:
+            setIndex = -1
+            courseB   = True
+            while length > 0:
+                if results[-1] == defSelWord[length-1]:
+                    whileList.append(len(defSelWord[length-1]))
+                    results.pop()
+                length -= 1
+
+        if len(results) <= 0:
+            self.view.run_command("move", {"by": "characters", "forward": courseA, "extend": True})
+            return True
+        whileList.append(len(results[setIndex]))
+        self.view.run_command("move", {"by": "characters", "forward": courseB})
+        for x in whileList:
+            while x > 0:
+                self.view.run_command('move', {"by": "characters", "forward": courseA, "extend": True})
+                x -= 1
+        return True
