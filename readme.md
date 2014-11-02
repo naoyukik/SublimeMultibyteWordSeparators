@@ -24,5 +24,4 @@ BitbucketからMercurialを使用してSublime Text 3のPackages配下にDLし�
 
 制限
 ---
-- 改行コードをまたいだ単語選択移動には対応していません。
 - マウスでの単語選択には対応していません。
