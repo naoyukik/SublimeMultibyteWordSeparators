@@ -7,7 +7,7 @@ def regularPattern():
     re_pattern = {
         'cjk': '[\u3400-\u9FFF\uF900-\uFAFF]+',
         'hiragana': '[\u3040-\u309F]+',
-        'katakana': '[\u30A0-\u30FA\u30FC-\u30FE]+',
+        'katakana': '[\u30A0-\u30FE]+',
         'cjkSymbol': '[\u3000-\u3020]+',
         'fullDigit': '[\uFF10-\uFF19]+',
         'fullLatin': '[\uFF21-\uFF3A\uFF41-\uFF5A]+',
