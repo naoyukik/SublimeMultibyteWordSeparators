@@ -1,26 +1,34 @@
-MoveMultiByteWord
+# MultibyteWordSeparators
+
+プラグインについて
 ---
 Sublime Text 3向けのマルチバイト文字列に対応した単語移動をサポートするパッケージです。  
 マルチバイト文字(主に日本語)を判別し、単語移動を出来るようにしました。
+以前は MoveMultiByteWord という名前で公開していましたが変更しました。この変更に伴い、コマンド名も変更されています。
 
 インストール
 ---
-現在のところ、Package Controlに対応していません。  
-BitbucketからMercurialを使用してSublime Text 3のPackages配下にDLしてください。
+Package Contorolに登録しています。下記の名前で検索できます。
 
-    hg clone ssh://hg@bitbucket.org/dat/movemultibyteword
+MultibyteWordSeparators
 
-キーバインド
+キーバインド例
 ---
-このパッケージには.sublime-keymapは含めていません。  
-"Preferences -> Key Bindings - User" でキーバインドを下記のように追加してください。
+このプラグインの初期設定のキーバインドは、Sublime Textの初期のカーソル移動を上書きします。
+もし変更を行いたい場合、下記のcommandを使用して変更してください。
 
+```javascript
     [
-        { "keys": ["ctrl+left"], "command": "move_multi_byte_word", "args": {"forward": false}},
-        { "keys": ["ctrl+right"], "command": "move_multi_byte_word", "args": {"forward": true}},
-        { "keys": ["ctrl+shift+left"], "command": "move_sel_multi_byte_word", "args": {"forward": false}},
-        { "keys": ["ctrl+shift+right"], "command": "move_sel_multi_byte_word", "args": {"forward": true}}
+        // 左へカーソルを動かす設定時、forwardをfalseへ
+        { "keys": ["ctrl+left"], "command": "multibyte_word_separators", "args": {"forward": false}},
+        // 右へカーソルを動かす設定時、forwardをtrueへ
+        { "keys": ["ctrl+right"], "command": "multibyte_word_separators", "args": {"forward": true}},
+
+        // 選択しながらカーソルを動かす
+        { "keys": ["ctrl+shift+left"], "command": "sel_multibyte_word_separators", "args": {"forward": false}},
+        { "keys": ["ctrl+shift+right"], "command": "sel_multibyte_word_separators", "args": {"forward": true}}
     ]
+```
 
 制限
 ---

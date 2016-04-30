@@ -1,27 +1,26 @@
-# MoveMultiByteWord
+# MultibyteWordSeparators
 
 About
 ---
-MoveMultiByteWord supported for sublime text 3.
+MultibyteWordSeparators supported for sublime text 3.
 It corresponds to move to each word of the cursor.
 
 Installation
 ---
 It's simple. Use Package Control.
 
-Search MoveMultiByteWord
+Search MultibyteWordSeparators
 
 
 key Binding
 ---
-This Package without .sublme-keymap.
-
-Add Key Bindings to User config(Preferences -> Key Bindings - User)....
 ```javascript
     [
-        { "keys": ["ctrl+left"], "command": "move_multi_byte_word", "args": {"forward": false}},
-        { "keys": ["ctrl+right"], "command": "move_multi_byte_word", "args": {"forward": true}},
-        { "keys": ["ctrl+shift+left"], "command": "move_sel_multi_byte_word", "args": {"forward": false}},
-        { "keys": ["ctrl+shift+right"], "command": "move_sel_multi_byte_word", "args": {"forward": true}}
+        { "keys": ["ctrl+left"], "command": "multibyte_word_separators", "args": {"forward": false}},
+        { "keys": ["ctrl+right"], "command": "multibyte_word_separators", "args": {"forward": true}},
+
+        // selected
+        { "keys": ["ctrl+shift+left"], "command": "sel_multibyte_word_separators", "args": {"forward": false}},
+        { "keys": ["ctrl+shift+right"], "command": "sel_multibyte_word_separators", "args": {"forward": true}}
     ]
 ```

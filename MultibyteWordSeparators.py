@@ -28,8 +28,8 @@ def wordParse(text):
     reCompile = regularPattern()
     return reCompile.findall(text)
 
-
-class MoveMultiByteWordCommand(sublime_plugin.TextCommand):
+# 日本語のテストをしています。Testの文字列です
+class MultibyteWordSeparatorsCommand(sublime_plugin.TextCommand):
     def run(self, edit, forward=False):
         self.view.run_command("move", {"by": "words", "forward": forward, "extend": True})
         for region in self.view.sel():
@@ -55,7 +55,7 @@ class MoveMultiByteWordCommand(sublime_plugin.TextCommand):
         return results
 
 
-class MoveSelMultiByteWordCommand(sublime_plugin.TextCommand):
+class SelMultibyteWordSeparatorsCommand(sublime_plugin.TextCommand):
 
     def run(self, edit, forward=False):
         for region in self.view.sel():
