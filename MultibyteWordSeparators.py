@@ -29,7 +29,6 @@ def wordParse(text):
     reCompile = regularPattern()
     return reCompile.findall(text)
 
-# 日本語のテストをしています。Testの文字列です
 class MultibyteWordSeparatorsCommand(sublime_plugin.TextCommand):
     def run(self, edit, forward=False):
         self.view.run_command("move", {"by": "words", "forward": forward, "extend": True})
