@@ -18,7 +18,8 @@ def regularPattern():
         'halfSymbol': '[\uFFE8-\uFFEE]',
         'latin': '[\u0030-\u0039\u0041-\u005A\u0061-\u007A\u0020\u005F]+',
         'latinSymbol': '[\u0021-\u002F\u003A-\u0040\u005B-\u005E\u0060\u00A5\u007B-\u007E\u203E]+',
-        'controlCharacters': '[\u000D\u000A-\u000C]'
+        'controlCharacters': '[\u000A\u000D]',
+        'czeroControls': '[\u0000-\u001F]'
     }
     pattern = separate.join(re_pattern.values())
     reCompile = re.compile(u''+pattern)
