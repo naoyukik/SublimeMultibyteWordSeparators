@@ -1,0 +1,6 @@
+[
+	{ "button": "button1",
+        "count": 2,
+        "command": "sel_mouse_multibyte_word_separators",
+    }
+]

@@ -103,3 +103,9 @@ class SelMultibyteWordSeparatorsCommand(sublime_plugin.TextCommand):
                 self.view.run_command('move', {"by": "characters", "forward": courseA, "extend": True})
                 x -= 1
         return True
+
+
+class SelMouseMultibyteWordSeparatorsCommand(sublime_plugin.TextCommand):
+    def run(self, edit, forward=False):
+        self.view.run_command("multibyte_word_separators", {"forward": False})
+        self.view.run_command("sel_multibyte_word_separators", {"forward": True})

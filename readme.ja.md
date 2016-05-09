@@ -31,7 +31,3 @@ MultibyteWordSeparators
         { "keys": ["ctrl+shift+right"], "command": "sel_multibyte_word_separators", "args": {"forward": true}}
     ]
 ```
-
-制限
----
-- マウスでの単語選択には対応していません。
