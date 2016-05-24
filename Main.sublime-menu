@@ -19,7 +19,7 @@
 								"caption": "Settings – Default",
 								"command": "open_file", "args":
 								{
-									"file": "${packages}/MultibyteWordSeparators/MultibyteWordSeparators.sublime-settings"
+									"file": "${packages}/Multibyte Word Separators/MultibyteWordSeparators.sublime-settings"
 								}
 							},
 							{
