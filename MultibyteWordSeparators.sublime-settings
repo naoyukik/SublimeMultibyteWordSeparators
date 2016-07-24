@@ -11,7 +11,7 @@
         "hiragana": "[\u3040-\u309F]+",
         "katakana": "[\u30A1-\u30FA\u30FC-\u30FE]+",
         "kanaSymbol": "[\u30A0\u30FB]+",
-        "cjkSymbol": "[\u3000-\u3020]+",
+        "cjkSymbol": "[\u2190-\u2193\u25A0\u25A1\u25B2\u25B3\u25BC\u25BD\u25C6\u25C7\u25CB\u25CE\u25CF\u2605\u2606\u3000-\u3020]+",
         "fullDigit": "[\uFF10-\uFF19]+",
         "fullLatin": "[\uFF21-\uFF3A\uFF41-\uFF5A]+",
         "halfCjkPunctuation": "[\uFF61-\uFF65]+",
